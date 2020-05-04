@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace _200504_JSON_Library
 {
+	[Serializable]
 	public class Book
 	{
 		public string Title { get; set; }
@@ -19,9 +20,11 @@ namespace _200504_JSON_Library
 			ISBN = isbn;
 		}
 
-		public Book()
-		{
+		public Book() { }
 
+		public override string ToString()
+		{
+			return $"{Title} by {Author} ISBN: {ISBN}";
 		}
 	}
 }

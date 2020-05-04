@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Microsoft.Win32;
+using System.IO;
 
 namespace _200504_JSON_Library
 {
@@ -21,17 +22,28 @@ namespace _200504_JSON_Library
 	/// </summary>
 	public partial class MainWindow : Window
 	{
-		JSONFile<Library> jSONFile;
-		Library lib;
-
+		private readonly string _path;
+		public List<Book> Books { get; set; }
 		public MainWindow()
 		{
 			InitializeComponent();
-			lib = new Library();
+			_path = $"{Directory.GetCurrentDirectory()}\\testFileName.json";
+			if (File.Exists(_path))
+				testJSONLoad();
+			else
+				testJSONSave();
 
-			lib.AddBook("Un livre trop cool","Jimmy Booker",1);
-			lib.AddBook("A book you wanna read","Patty Writter",2);
-			lib.AddBook("SOmthing interesting","Garry Somthing",3);
+			DgBooks.ItemsSource = Books;
+		}
+
+		private void testJSONSave()
+		{
+			LibrarySerializer librarySerializer = new LibrarySerializer(_path);
+			librarySerializer.Books.Add(new Book("Book 1", "Author 1", 1));
+			librarySerializer.Books.Add(new Book("Book 2", "Author 2", 2));
+			librarySerializer.Books.Add(new Book("Book 3", "Author 3", 3));
+
+			librarySerializer.Save();
 		}
 
 		private void LoadJSON_CanExecute(object sender, CanExecuteRoutedEventArgs e)
@@ -44,21 +56,18 @@ namespace _200504_JSON_Library
 		}
 		private void LoadJSON_Executed(object sender, ExecutedRoutedEventArgs e)
 		{
-			jSONFile = new JSONFile<Library>();
-			jSONFile.Load();
-
 		}
+
+		private void testJSONLoad()
+		{
+			LibrarySerializer librarySerializer = new LibrarySerializer(_path);
+			librarySerializer.Load();
+
+			Books = librarySerializer.Books;
+		}
+
 		private void SaveJSON_Executed(object sender, ExecutedRoutedEventArgs e)
 		{
-			if (jSONFile is null)
-			{
-				MessageBox.Show("Nothing to save.","Object not defined");
-			}
-			else
-			{
-				jSONFile.Save();
-			}
-
 		}
 	}
 }

@@ -6,29 +6,30 @@
         xmlns:local="clr-namespace:_200504_JSON_Library"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Window.CommandBindings>
+    <!--xmlns:commands="clr-namespace:_200504_JSON_Library.Commands"-->
+    <!--<Window.CommandBindings>
         <CommandBinding Command="LoadJSON" CanExecute="LoadJSON_CanExecute" Executed="LoadJSON_Executed" />
         <CommandBinding Command="SaveJSON" CanExecute="SaveJSON_CanExecute" Executed="SaveJSON_Executed" />
-    </Window.CommandBindings>
+    </Window.CommandBindings>-->
+
     <Grid>
-        <DockPanel HorizontalAlignment="Left" Height="18" LastChildFill="False" VerticalAlignment="Top" Width="792" RenderTransformOrigin="0.5,0.5" Margin="0,-3,0,0">
+        <DockPanel x:Name="MainDockPanel" HorizontalAlignment="Left" Height="18" LastChildFill="False" VerticalAlignment="Top" Width="792" RenderTransformOrigin="0.5,0.5" Margin="0,-3,0,0">
             <Menu x:Name="menu" DockPanel.Dock="Top" VerticalAlignment="Top" Height="18">
-                <MenuItem Header="File" Command="">
-                    <MenuItem Header="Load JSON..." Command="LoadJSON" />
-                    <MenuItem Header="Save" Command="SaveJSON" />
-                    <MenuItem Header="" Command="" />
+                <MenuItem Header="File" >
+                    <MenuItem Header="Load JSON..." Command="" />
+                    <MenuItem Header="Save" Command="" />
+                    <MenuItem Header="Quit" Command=""  />
                 </MenuItem>
 
             </Menu>
-            <DataGrid x:Name="dataGrid" HorizontalAlignment="Left" Height="208" Margin="108,5,0,-213" VerticalAlignment="Top" Width="576" AutoGenerateColumns="False">
+            <DataGrid Name="DgBooks" HorizontalAlignment="Left" Height="300" Margin="0" VerticalAlignment="Top" AutoGenerateColumns="False"    Width="792">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Title" Binding="{Binding Title}" />
-                    <DataGridTextColumn Header="Title" Binding="{Binding Author}" />
-                    <DataGridTextColumn Header="Title" Binding="{Binding ISBN}" />
+                    <DataGridTextColumn Header="Author" Binding="{Binding Author}" />
+                    <DataGridTextColumn Header="ISBN" Binding="{Binding ISBN}" />
                 </DataGrid.Columns>
 
             </DataGrid>
         </DockPanel>
-
     </Grid>
 </Window>
