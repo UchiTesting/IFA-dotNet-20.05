@@ -7,10 +7,10 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <!--xmlns:commands="clr-namespace:_200504_JSON_Library.Commands"-->
-    <!--<Window.CommandBindings>
-        <CommandBinding Command="LoadJSON" CanExecute="LoadJSON_CanExecute" Executed="LoadJSON_Executed" />
-        <CommandBinding Command="SaveJSON" CanExecute="SaveJSON_CanExecute" Executed="SaveJSON_Executed" />
-    </Window.CommandBindings>-->
+    <Window.CommandBindings>
+        <CommandBinding Command="ApplicationCommands.Open" CanExecute="LoadJSON_CanExecute" Executed="LoadJSON_Executed" />
+        <CommandBinding Command="ApplicationCommands.Save" CanExecute="SaveJSON_CanExecute" Executed="SaveJSON_Executed" />
+    </Window.CommandBindings>
 
     <Grid>
         <DockPanel x:Name="MainDockPanel" HorizontalAlignment="Left" Height="18" LastChildFill="False" VerticalAlignment="Top" Width="792" RenderTransformOrigin="0.5,0.5" Margin="0,-3,0,0">

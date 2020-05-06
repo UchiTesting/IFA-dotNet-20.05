@@ -56,6 +56,7 @@ namespace _200504_JSON_Library
 		}
 		private void LoadJSON_Executed(object sender, ExecutedRoutedEventArgs e)
 		{
+			MessageBox.Show("Loaded...");
 		}
 
 		private void testJSONLoad()
@@ -64,10 +65,13 @@ namespace _200504_JSON_Library
 			librarySerializer.Load();
 
 			Books = librarySerializer.Books;
+
+			MessageBox.Show(librarySerializer.DisplayBooksAsString());
 		}
 
 		private void SaveJSON_Executed(object sender, ExecutedRoutedEventArgs e)
 		{
+			MessageBox.Show("Saved.");
 		}
 	}
 }

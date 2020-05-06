@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using Microsoft.Win32;
 using System.IO;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
+
 
 namespace _200504_JSON_Library
 {
@@ -46,7 +45,7 @@ namespace _200504_JSON_Library
 			try
 			{
 				string jsonstring =File.ReadAllText(Path); 
-				List<Book> lb = JsonConvert.DeserializeObject<List<Book>>(jsonstring);
+				//List<Book> lb = JsonConvert.DeserializeObject<List<Book>>(jsonstring);
 			}
 			catch (Exception e)
 			{
@@ -76,9 +75,9 @@ namespace _200504_JSON_Library
 
 			try
 			{
-				string json = JsonConvert.SerializeObject(Content);
+				//string json = JsonConvert.SerializeObject(Content);
 
-				File.WriteAllText(Path,json);
+				//File.WriteAllText(Path,json);
 			}
 			catch (Exception e)
 			{
