@@ -8,9 +8,16 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Window.CommandBindings>
-        <CommandBinding Command="" CanExecute="ShowAddUserDialog_CanExecute" Executed="ShowAddUserDialog_Executed" />
+        <CommandBinding Command="commands:MainWindowCommands.ShowAddUserDialog" CanExecute="ShowAddUserDialog_CanExecute" Executed="ShowAddUserDialog_Executed" />
     </Window.CommandBindings>
-    <Grid>
-        
-    </Grid>
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="File">
+                <MenuItem Header="Open"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Users">
+                <MenuItem Header="Add..." Command="commands:MainWindowCommands.ShowAddUserDialog"></MenuItem>
+            </MenuItem>
+        </Menu>
+    </DockPanel>
 </Window>

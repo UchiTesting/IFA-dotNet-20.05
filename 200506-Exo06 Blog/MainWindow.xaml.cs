@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using _200506_Exo06_Blog.UI;
 
 namespace _200506_Exo06_Blog
 {
@@ -26,6 +27,12 @@ namespace _200506_Exo06_Blog
 		}
 
 		public void ShowAddUserDialog_CanExecute(object sender, CanExecuteRoutedEventArgs e){e.CanExecute = true;}
-		public void ShowAddUserDialog_Executed(object sender, ExecutedRoutedEventArgs e){}
+
+		public void ShowAddUserDialog_Executed(object sender, ExecutedRoutedEventArgs e)
+		{
+			// MessageBox.Show("Youpi!");
+			AddUserWindow.GetInstance().ShowDialog();
+			
+		}
 	}
 }

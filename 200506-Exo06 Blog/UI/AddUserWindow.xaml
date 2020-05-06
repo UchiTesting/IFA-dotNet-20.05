@@ -1,0 +1,25 @@
+﻿<Window x:Class="_200506_Exo06_Blog.UI.AddUserWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:_200506_Exo06_Blog.UI"
+        xmlns:mycustomcmds="clr-namespace:_200506_Exo06_Blog.Commands"
+        mc:Ignorable="d"
+        Title="AddUserWindow" Height="450" Width="800" >
+    <Window.CommandBindings>
+        <CommandBinding Command="mycustomcmds:AddUserWindowCommands.Cancel" CanExecute="Cancel_CanExecute" Executed="Cancel_Executed"></CommandBinding>
+    </Window.CommandBindings>
+    <WrapPanel>
+        <Label Content="Login"></Label>
+        <TextBox Name="TbLogin" Width="130"></TextBox>
+        <Label Content="Password"></Label>
+        <TextBox Name="TbPassword" Width="130"></TextBox>
+        <Label Content="Gender"></Label>
+        <ComboBox>
+            <ComboBoxItem IsSelected="True">Male</ComboBoxItem>
+            <ComboBoxItem>Female</ComboBoxItem>
+        </ComboBox>
+        <Button Name="BtnCancel" Command="mycustomcmds:AddUserWindowCommands.Cancel">Cancel</Button>
+    </WrapPanel>
+</Window>
