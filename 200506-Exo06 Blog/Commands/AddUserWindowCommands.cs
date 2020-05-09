@@ -9,6 +9,7 @@ namespace _200506_Exo06_Blog.Commands
 {
 	public static class AddUserWindowCommands
 	{
+		public static readonly RoutedUICommand OK = new RoutedUICommand("OK","OK",typeof(AddUserWindowCommands));
 		public static readonly RoutedUICommand Cancel = new RoutedUICommand("Cancel","Cancel",typeof(AddUserWindowCommands));
 	}
 }

@@ -8,7 +8,7 @@ using _200506_Exo06_Blog.Enums;
 
 namespace _200506_Exo06_Blog.Objects
 {
-	class User : INotifyPropertyChanged
+	public class User : INotifyPropertyChanged
 	{
 		UserRightsEnum _priviledge;
 		string _login;

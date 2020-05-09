@@ -14,6 +14,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "200506-Exo06 Blog", "200506-Exo06 Blog\200506-Exo06 Blog.csproj", "{12C48B46-5952-4350-83D7-A493457EFBAF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "200507-Exo07 Ecommerce", "200507-Ecommerce\200507-Exo07 Ecommerce.csproj", "{F7D50CB7-A979-46DC-8B79-D4639E20FAA1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -28,6 +30,10 @@ Global
 		{12C48B46-5952-4350-83D7-A493457EFBAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{12C48B46-5952-4350-83D7-A493457EFBAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{12C48B46-5952-4350-83D7-A493457EFBAF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F7D50CB7-A979-46DC-8B79-D4639E20FAA1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7D50CB7-A979-46DC-8B79-D4639E20FAA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F7D50CB7-A979-46DC-8B79-D4639E20FAA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F7D50CB7-A979-46DC-8B79-D4639E20FAA1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -35,6 +41,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{E2119164-F830-4A76-AE11-B230778DF9A3} = {88697548-99C8-4D91-9951-0BFC0BE9E1F5}
 		{12C48B46-5952-4350-83D7-A493457EFBAF} = {88697548-99C8-4D91-9951-0BFC0BE9E1F5}
+		{F7D50CB7-A979-46DC-8B79-D4639E20FAA1} = {88697548-99C8-4D91-9951-0BFC0BE9E1F5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {AAC19A52-227B-4E61-9B02-56D1D5A45E6C}

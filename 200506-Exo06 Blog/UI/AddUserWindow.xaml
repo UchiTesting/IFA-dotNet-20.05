@@ -6,20 +6,22 @@
         xmlns:local="clr-namespace:_200506_Exo06_Blog.UI"
         xmlns:mycustomcmds="clr-namespace:_200506_Exo06_Blog.Commands"
         mc:Ignorable="d"
-        Title="AddUserWindow" Height="450" Width="800" >
+        Title="AddUserWindow" Height="330" Width="300" >
     <Window.CommandBindings>
+        <CommandBinding Command="mycustomcmds:AddUserWindowCommands.OK" CanExecute="OK_CanExecute" Executed="OK_Executed"></CommandBinding>
         <CommandBinding Command="mycustomcmds:AddUserWindowCommands.Cancel" CanExecute="Cancel_CanExecute" Executed="Cancel_Executed"></CommandBinding>
     </Window.CommandBindings>
-    <WrapPanel>
-        <Label Content="Login"></Label>
-        <TextBox Name="TbLogin" Width="130"></TextBox>
-        <Label Content="Password"></Label>
-        <TextBox Name="TbPassword" Width="130"></TextBox>
-        <Label Content="Gender"></Label>
-        <ComboBox>
+    <Grid>
+        <Label Content="Login" Margin="10,10,90,260"></Label>
+        <TextBox x:Name="TbLogin" Margin="10,44,90,225"/>
+        <Label Content="Password" Margin="10,79,90,190" ></Label>
+        <TextBox Name="TbPassword" Margin="10,114,90,151"/>
+        <Label Content="Gender" Margin="10,153,90,117"></Label>
+        <ComboBox Name="CbPriviledge" Margin="10,180,90,89">
             <ComboBoxItem IsSelected="True">Male</ComboBoxItem>
             <ComboBoxItem>Female</ComboBoxItem>
         </ComboBox>
-        <Button Name="BtnCancel" Command="mycustomcmds:AddUserWindowCommands.Cancel">Cancel</Button>
-    </WrapPanel>
+        <Button Name="BtnOk" Command="mycustomcmds:AddUserWindowCommands.OK" Margin="10,225,192,44">OK</Button>
+        <Button Name="BtnCancel" Command="mycustomcmds:AddUserWindowCommands.Cancel" Margin="120,225,90,44">Cancel</Button>
+    </Grid>
 </Window>

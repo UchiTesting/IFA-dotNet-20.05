@@ -40,6 +40,5 @@ namespace _200504_JSON_Library
 
 			return sb.ToString();
 		}
-
 	}
 }

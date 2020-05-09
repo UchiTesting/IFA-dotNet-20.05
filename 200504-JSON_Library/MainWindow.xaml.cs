@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Microsoft.Win32;
 using System.IO;
+using _200504_JSON_Library.Extensions;
 
 namespace _200504_JSON_Library
 {
@@ -23,29 +25,45 @@ namespace _200504_JSON_Library
 	public partial class MainWindow : Window
 	{
 		private readonly string _path;
-		public List<Book> Books { get; set; }
+		public ObservableCollection<Book> Books { get; set; }
 		public MainWindow()
 		{
+			Books = new ObservableCollection<Book>();
 			InitializeComponent();
-			_path = $"{Directory.GetCurrentDirectory()}\\testFileName.json";
-			if (File.Exists(_path))
-				testJSONLoad();
+			_path = $"{Directory.GetCurrentDirectory()}\\Library.json";
+			if (!File.Exists(_path))
+				TestJsonSave();
 			else
-				testJSONSave();
+				TestJsonLoad();
 
+			RefreshDataGrid();
+			Console.WriteLine("TESTTESTETETSTESSDFKJSLDKFJSDLKFJSDFLKDJF");
+		}
+
+		private void RefreshDataGrid()
+		{
 			DgBooks.ItemsSource = Books;
 		}
 
-		private void testJSONSave()
+		private void TestJsonSave()
 		{
 			LibrarySerializer librarySerializer = new LibrarySerializer(_path);
-			librarySerializer.Books.Add(new Book("Book 1", "Author 1", 1));
-			librarySerializer.Books.Add(new Book("Book 2", "Author 2", 2));
-			librarySerializer.Books.Add(new Book("Book 3", "Author 3", 3));
-
+			//for (int i = 1; i <= 20; i++)
+			//{
+			//	librarySerializer.Books.Add(new Book($"Book {i}", $"Author {i}", i));
+			//}
+			librarySerializer.Books = Books.ToList();
 			librarySerializer.Save();
 		}
+		private void TestJsonLoad()
+		{
+			LibrarySerializer librarySerializer = new LibrarySerializer(_path);
+			librarySerializer.Load();
 
+			Books = librarySerializer.Books.ToObservableCollection();
+
+			//MessageBox.Show(librarySerializer.DisplayBooksAsString());
+		}
 		private void LoadJSON_CanExecute(object sender, CanExecuteRoutedEventArgs e)
 		{
 			e.CanExecute = true;
@@ -54,24 +72,64 @@ namespace _200504_JSON_Library
 		{
 			e.CanExecute = true;
 		}
+		private void Quit_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+		{
+			e.CanExecute = true;
+		}
 		private void LoadJSON_Executed(object sender, ExecutedRoutedEventArgs e)
 		{
-			MessageBox.Show("Loaded...");
+			TestJsonLoad();
+			RefreshDataGrid(); // Shouldn't it be automatic upon any change in the DataGrid?
+
 		}
-
-		private void testJSONLoad()
-		{
-			LibrarySerializer librarySerializer = new LibrarySerializer(_path);
-			librarySerializer.Load();
-
-			Books = librarySerializer.Books;
-
-			MessageBox.Show(librarySerializer.DisplayBooksAsString());
-		}
-
 		private void SaveJSON_Executed(object sender, ExecutedRoutedEventArgs e)
 		{
-			MessageBox.Show("Saved.");
+			TestJsonSave();
+			
+		}
+		private void Quit_Executed(object sender, ExecutedRoutedEventArgs e)
+		{
+			App.Current.Shutdown();
+		}
+		private void ClearData_Executed(object sender, ExecutedRoutedEventArgs e)
+		{
+			Books.Clear();
+
+		}
+
+		private void ClearData_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+		{
+			e.CanExecute = true;
+		}
+		private void EnableEditing_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+		{
+			e.CanExecute = true;
+		}
+		private void EnableEditing_Executed(object sender, ExecutedRoutedEventArgs e)
+		{
+			BtnEnableEditing.Content = DgBooks.IsReadOnly ? "Disable Editing" : "Enable Editing";
+
+			try
+			{
+				DgBooks.IsReadOnly = !DgBooks.IsReadOnly;
+			}
+			catch (Exception exception)
+			{
+				Console.Write(exception.Message);
+			}
+		}
+
+		private void DisplayHeadCollection_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+		{
+			e.CanExecute = true;
+		}
+
+		private void DisplayHeadCollection_Executed(object sender, ExecutedRoutedEventArgs e)
+		{
+			StringBuilder sb = new StringBuilder();
+			Books.ForEach(b =>sb.AppendLine(b.ToString()));
+			Console.WriteLine($"DEBUG {Environment.NewLine}: {sb.ToString()}");
+			MessageBox.Show(sb.ToString(), "Debug");
 		}
 	}
 }

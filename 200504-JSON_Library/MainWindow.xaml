@@ -4,32 +4,77 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:_200504_JSON_Library"
+        xmlns:commands="clr-namespace:_200504_JSON_Library.Commands"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <!--xmlns:commands="clr-namespace:_200504_JSON_Library.Commands"-->
-    <Window.CommandBindings>
-        <CommandBinding Command="ApplicationCommands.Open" CanExecute="LoadJSON_CanExecute" Executed="LoadJSON_Executed" />
-        <CommandBinding Command="ApplicationCommands.Save" CanExecute="SaveJSON_CanExecute" Executed="SaveJSON_Executed" />
-    </Window.CommandBindings>
+   <Window.CommandBindings>
+      <CommandBinding Command="commands:ApplicationCommands.LoadJSON" CanExecute="LoadJSON_CanExecute" Executed="LoadJSON_Executed" />
+      <CommandBinding Command="commands:ApplicationCommands.SaveJSON" CanExecute="SaveJSON_CanExecute" Executed="SaveJSON_Executed" />
+      <CommandBinding Command="commands:ApplicationCommands.Quit" CanExecute="Quit_CanExecute" Executed="Quit_Executed"/>
+      <CommandBinding Command="commands:ApplicationCommands.ClearDataGrid" CanExecute="ClearData_CanExecute" Executed="ClearData_Executed"/>
+      <CommandBinding Command="commands:ApplicationCommands.EnableDataGridEditing" CanExecute="EnableEditing_CanExecute" Executed="EnableEditing_Executed"/>
+      <CommandBinding Command="commands:DebugCommands.DisplayHeadCollection" CanExecute="DisplayHeadCollection_CanExecute" Executed="DisplayHeadCollection_Executed"/>
 
-    <Grid>
-        <DockPanel x:Name="MainDockPanel" HorizontalAlignment="Left" Height="18" LastChildFill="False" VerticalAlignment="Top" Width="792" RenderTransformOrigin="0.5,0.5" Margin="0,-3,0,0">
-            <Menu x:Name="menu" DockPanel.Dock="Top" VerticalAlignment="Top" Height="18">
-                <MenuItem Header="File" >
-                    <MenuItem Header="Load JSON..." Command="" />
-                    <MenuItem Header="Save" Command="" />
-                    <MenuItem Header="Quit" Command=""  />
-                </MenuItem>
+   </Window.CommandBindings>
 
-            </Menu>
-            <DataGrid Name="DgBooks" HorizontalAlignment="Left" Height="300" Margin="0" VerticalAlignment="Top" AutoGenerateColumns="False"    Width="792">
-                <DataGrid.Columns>
-                    <DataGridTextColumn Header="Title" Binding="{Binding Title}" />
-                    <DataGridTextColumn Header="Author" Binding="{Binding Author}" />
-                    <DataGridTextColumn Header="ISBN" Binding="{Binding ISBN}" />
-                </DataGrid.Columns>
+   <DockPanel x:Name="MainDockPanel" HorizontalAlignment="Left" LastChildFill="True" Width="792">
+      <Menu x:Name="menu" DockPanel.Dock="Top" VerticalAlignment="Top">
+         <MenuItem Header="File" >
+            <MenuItem Header="Load JSON..." Command="commands:ApplicationCommands.LoadJSON" />
+            <MenuItem Header="Save" Command="commands:ApplicationCommands.SaveJSON" />
+            <MenuItem Header="Quit" Command="commands:ApplicationCommands.Quit"  />
+         </MenuItem>
+         <MenuItem Header="Debug">
+            <MenuItem Command="commands:DebugCommands.DisplayHeadCollection"/>
+         </MenuItem>
+      </Menu>
+      <ToolBar DockPanel.Dock="Top">
+         <Button Name="BtnEnableEditing" Command="commands:ApplicationCommands.EnableDataGridEditing">Enable Editing</Button>
+         <Button Name="BtnClearData" Command="commands:ApplicationCommands.ClearDataGrid">Clear Data</Button>
+      </ToolBar>
+      <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" DockPanel.Dock="Bottom">
+         <DataGrid x:Name="DgBooks" AutoGenerateColumns="False" IsReadOnly="True">
+            <DataGrid.Columns>
+               <DataGridTemplateColumn Header ="Title">
+                  <DataGridTemplateColumn.CellTemplate>
+                     <DataTemplate>
+                        <TextBlock Text="{Binding Title}"></TextBlock>
+                     </DataTemplate>
+                  </DataGridTemplateColumn.CellTemplate>
+                  <DataGridTemplateColumn.CellEditingTemplate>
+                     <DataTemplate>
+                        <TextBox Text="{Binding Title}"></TextBox>
+                     </DataTemplate>
+                  </DataGridTemplateColumn.CellEditingTemplate>
+               </DataGridTemplateColumn>
+               <DataGridTemplateColumn Header="Author">
+                  <DataGridTemplateColumn.CellTemplate>
+                     <DataTemplate>
+                        <TextBlock Text="{Binding Author}"></TextBlock>
+                     </DataTemplate>
+                  </DataGridTemplateColumn.CellTemplate>
+                  <DataGridTemplateColumn.CellEditingTemplate>
+                     <DataTemplate>
+                        <TextBox Text="{Binding Author}"></TextBox>
+                     </DataTemplate>
+                  </DataGridTemplateColumn.CellEditingTemplate>
+               </DataGridTemplateColumn>
+               <DataGridTemplateColumn Header="ISBN number">
+                  <DataGridTemplateColumn.CellTemplate>
+                     <DataTemplate>
+                        <!-- {} to escape format -->
+                        <TextBlock Text="{Binding ISBN, StringFormat={}{0}}"></TextBlock>
+                     </DataTemplate>
+                  </DataGridTemplateColumn.CellTemplate>
+                  <DataGridTemplateColumn.CellEditingTemplate>
+                     <DataTemplate>
+                        <TextBox Text="{Binding ISBN, StringFormat={}{0}}"></TextBox>
+                     </DataTemplate>
+                  </DataGridTemplateColumn.CellEditingTemplate>
+               </DataGridTemplateColumn>
+            </DataGrid.Columns>
+         </DataGrid>
+      </ScrollViewer>
+   </DockPanel>
 
-            </DataGrid>
-        </DockPanel>
-    </Grid>
 </Window>

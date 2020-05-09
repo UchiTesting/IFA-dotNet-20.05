@@ -91,8 +91,11 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Commands\DebugCommands.cs" />
     <Compile Include="Commands\ApplicationCommands.cs" />
     <Compile Include="Book.cs" />
+    <Compile Include="Extensions\EnumerableExtension.cs" />
+    <Compile Include="Extensions\ObservableCollectionExtension.cs" />
     <Compile Include="LibrarySerializer.cs" />
     <Compile Include="JSONFile.cs" />
     <Compile Include="MainWindow.xaml.cs">
