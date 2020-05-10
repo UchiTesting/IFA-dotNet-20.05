@@ -56,6 +56,11 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Commands\AddUserWindowCommands.cs" />
+    <Compile Include="DotNetExosDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DotNetExosDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Enums\UserRightsEnum.cs" />
     <Compile Include="Objects\User.cs" />
     <Compile Include="UI\AddUserWindow.xaml.cs">
@@ -94,6 +99,17 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="DotNetExosDataSet.xsc">
+      <DependentUpon>DotNetExosDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DotNetExosDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DotNetExosDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DotNetExosDataSet.xss">
+      <DependentUpon>DotNetExosDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

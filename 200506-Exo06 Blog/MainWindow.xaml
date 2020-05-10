@@ -7,17 +7,28 @@
         xmlns:commands="clr-namespace:_200506_Exo06_Blog.Commands"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Window.CommandBindings>
-        <CommandBinding Command="commands:MainWindowCommands.ShowAddUserDialog" CanExecute="ShowAddUserDialog_CanExecute" Executed="ShowAddUserDialog_Executed" />
-    </Window.CommandBindings>
-    <DockPanel>
-        <Menu DockPanel.Dock="Top">
-            <MenuItem Header="File">
-                <MenuItem Header="Open"></MenuItem>
-            </MenuItem>
-            <MenuItem Header="Users">
-                <MenuItem Header="Add..." Command="commands:MainWindowCommands.ShowAddUserDialog"></MenuItem>
-            </MenuItem>
-        </Menu>
-    </DockPanel>
+   <Window.CommandBindings>
+      <CommandBinding Command="commands:MainWindowCommands.ShowAddUserDialog" CanExecute="ShowAddUserDialog_CanExecute" Executed="ShowAddUserDialog_Executed" />
+   </Window.CommandBindings>
+   <DockPanel>
+      <Menu DockPanel.Dock="Top">
+         <MenuItem Header="File">
+            <MenuItem Header="Open"></MenuItem>
+         </MenuItem>
+         <MenuItem Header="Users">
+            <MenuItem Header="Add..." Command="commands:MainWindowCommands.ShowAddUserDialog"></MenuItem>
+         </MenuItem>
+      </Menu>
+      <DockPanel>
+         <ListView Name="LvArticles" DockPanel.Dock="Left" MinWidth="120"/>
+         <StackPanel DockPanel.Dock="Right">
+            <Label Name="LblTitle" Content="No article selected yet."></Label>
+            <Label Name="LblDate" Content=""></Label>
+            <Label Name="LblAuthor" Content=""></Label>
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+               <TextBlock Name="TbContent"/>
+            </ScrollViewer>
+         </StackPanel>
+      </DockPanel>
+   </DockPanel>
 </Window>

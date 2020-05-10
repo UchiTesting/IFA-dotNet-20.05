@@ -1,20 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using Microsoft.Win32;
-using System.IO;
+
 using _200504_JSON_Library.Extensions;
 
 namespace _200504_JSON_Library
@@ -37,7 +28,6 @@ namespace _200504_JSON_Library
 				TestJsonLoad();
 
 			RefreshDataGrid();
-			Console.WriteLine("TESTTESTETETSTESSDFKJSLDKFJSDLKFJSDFLKDJF");
 		}
 
 		private void RefreshDataGrid()
@@ -47,12 +37,11 @@ namespace _200504_JSON_Library
 
 		private void TestJsonSave()
 		{
-			LibrarySerializer librarySerializer = new LibrarySerializer(_path);
+			LibrarySerializer librarySerializer = new LibrarySerializer(_path) {Books = Books.ToList()};
 			//for (int i = 1; i <= 20; i++)
 			//{
 			//	librarySerializer.Books.Add(new Book($"Book {i}", $"Author {i}", i));
 			//}
-			librarySerializer.Books = Books.ToList();
 			librarySerializer.Save();
 		}
 		private void TestJsonLoad()
@@ -85,7 +74,7 @@ namespace _200504_JSON_Library
 		private void SaveJSON_Executed(object sender, ExecutedRoutedEventArgs e)
 		{
 			TestJsonSave();
-			
+
 		}
 		private void Quit_Executed(object sender, ExecutedRoutedEventArgs e)
 		{
@@ -127,7 +116,7 @@ namespace _200504_JSON_Library
 		private void DisplayHeadCollection_Executed(object sender, ExecutedRoutedEventArgs e)
 		{
 			StringBuilder sb = new StringBuilder();
-			Books.ForEach(b =>sb.AppendLine(b.ToString()));
+			Books.ForEach(b => sb.AppendLine(b.ToString()));
 			Console.WriteLine($"DEBUG {Environment.NewLine}: {sb.ToString()}");
 			MessageBox.Show(sb.ToString(), "Debug");
 		}
