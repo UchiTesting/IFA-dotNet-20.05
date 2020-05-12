@@ -3,10 +3,13 @@ using System.Collections.Generic;
 
 namespace _200507_Exo07_Ecommerce.Objects
 {
-	class Cart
+	public class Cart
 	{
+		public Cart() { }
+
 		public int Id { get; set; }
-		public Dictionary<Product,int> OrderedProducts { get; set; }
+		// Dictionary for ProductID and respective quantity
+		public Dictionary<int, int> OrderedProducts { get; set; }
 
 		public void GetTotalAmount()
 		{
