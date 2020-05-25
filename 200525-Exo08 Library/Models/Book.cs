@@ -74,8 +74,8 @@ namespace _200525_Exo08_Library.Models
 		public Book()
 		{
 			rnd = new Random();
-			Title = RandomString();
-			Summary = RandomString();
+			//Title = RandomString();
+			//Summary = RandomString();
 			ReleaseDate = DateTime.Now;
 			OwnAuthor = new Author { Name = RandomString() };
 		}
