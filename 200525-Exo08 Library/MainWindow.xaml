@@ -1,0 +1,21 @@
+﻿<Window x:Class="_200525_Exo08_Library.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_200525_Exo08_Library"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+   <Grid>
+      <Grid.ColumnDefinitions>
+         <ColumnDefinition Width="*" />
+         <ColumnDefinition Width="100" />
+      </Grid.ColumnDefinitions>
+      <ListView x:Name="LvBooks"  Grid.Column="0" DisplayMemberPath="Title"/>
+      <StackPanel Grid.Column="1" Orientation="Vertical">
+         <Button x:Name="BtnAdd" Content="Add" Click="BtnAdd_Click" />
+         <Button x:Name="BtnEdit" Content="Edit" Click="BtnEdit_Click" />
+         <Button x:Name="BtnDelete" Content="Delete" Click="BtnDelete_Click" />
+      </StackPanel>
+   </Grid>
+</Window>
