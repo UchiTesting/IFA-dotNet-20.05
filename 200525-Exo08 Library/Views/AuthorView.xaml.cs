@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,24 +13,31 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-using _200525_Exo08_Library.Helpers;
-using _200525_Exo08_Library.Models;
-
-namespace _200525_Exo08_Library
+namespace _200525_Exo08_Library.Views
 {
 	/// <summary>
-	/// Interaction logic for MainWindow.xaml
+	/// Interaction logic for AuthorView.xaml
 	/// </summary>
-	public partial class MainWindow : Window
+	public partial class AuthorView : Page
 	{
-
-
-		/// <summary>
-		/// 
-		/// </summary>
-		public MainWindow()
+		public AuthorView()
 		{
 			InitializeComponent();
+		}
+
+		private void BtnAdd_Click(object sender, RoutedEventArgs e)
+		{
+
+		}
+
+		private void BtnEdit_Click(object sender, RoutedEventArgs e)
+		{
+
+		}
+
+		private void BtnDelete_Click(object sender, RoutedEventArgs e)
+		{
+
 		}
 	}
 }
