@@ -62,9 +62,9 @@ namespace _200525_Exo08_Library.Views
 
 			if (na is null) return;
 
-			int writtenBookNumber = (from b in db.Books where b.OwnAuthor.Id == na.Id select b).Count();
+			
 
-			if (writtenBookNumber == 0)
+			if (na.WrittenBooks.Count == 0)
 			{
 				db.Authors.Remove(na);
 				db.SaveChanges();

@@ -82,6 +82,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Migrations\202005250742187_InitialCreate.cs" />
+    <Compile Include="Migrations\202005250742187_InitialCreate.designer.cs">
+      <DependentUpon>202005250742187_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202005280938159_AuthorWrittenBooksIP.cs" />
+    <Compile Include="Migrations\202005280938159_AuthorWrittenBooksIP.designer.cs">
+      <DependentUpon>202005280938159_AuthorWrittenBooksIP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Views\AuthorView.xaml.cs">
       <DependentUpon>AuthorView.xaml</DependentUpon>
     </Compile>
@@ -127,6 +136,12 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="Migrations\202005250742187_InitialCreate.resx">
+      <DependentUpon>202005250742187_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005280938159_AuthorWrittenBooksIP.resx">
+      <DependentUpon>202005280938159_AuthorWrittenBooksIP.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

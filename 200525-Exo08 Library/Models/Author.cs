@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media.Imaging;
 
 namespace _200525_Exo08_Library.Models
 {
@@ -10,6 +12,7 @@ namespace _200525_Exo08_Library.Models
 	{
 		private int id;
 		private string name;
+		private ICollection<Book> writtenBooks;
 
 		public int Id
 		{
@@ -33,6 +36,17 @@ namespace _200525_Exo08_Library.Models
 			}
 		}
 
-		//virtual public ICollection<Book> WrittenBooks { get;set;}
+		[InverseProperty("OwnAuthor")]
+		virtual public ICollection<Book> WrittenBooks
+		{
+			get => writtenBooks;
+			set
+			{
+				if (value == writtenBooks) return;
+
+				writtenBooks = value;
+				OnPropertyChanged(nameof(WrittenBooks));
+			}
+		}
 	}
 }

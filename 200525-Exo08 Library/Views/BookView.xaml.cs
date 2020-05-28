@@ -79,8 +79,8 @@ namespace _200525_Exo08_Library.Views
 
 		private void LvBooks_SelectionChanged(object sender, SelectionChangedEventArgs e)
 		{
-			db.Books.ToList();
 			LvBooks.ItemsSource = db.Books.Local;
+			db.Books.ToList();
 			Book nb = LvBooks.SelectedItem as Book;
 
 			if (nb is null) return;
