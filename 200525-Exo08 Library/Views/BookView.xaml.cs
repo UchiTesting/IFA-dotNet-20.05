@@ -67,6 +67,7 @@ namespace _200525_Exo08_Library.Views
 
 			nb.Title = TbxTitle.Text;
 			nb.Summary = TbxSummary.Text;
+			nb.ReleaseDate = (DateTime)DpkDate.SelectedDate;
 			nb.OwnAuthor.Name = TbxAuthor.Text;
 
 			//db.Books.Remove(nb);
@@ -83,7 +84,7 @@ namespace _200525_Exo08_Library.Views
 
 			TbxTitle.Text = nb.Title;
 			TbxSummary.Text = nb.Summary;
-			TbxDate.Text = nb.ReleaseDate.ToString();
+			DpkDate.SelectedDate = nb.ReleaseDate;
 			TbxAuthor.Text = nb.OwnAuthor.Name;
 		}
 	}
