@@ -73,11 +73,11 @@ namespace _200525_Exo08_Library.Models
 
 		public Book()
 		{
-			rnd = new Random();
+			//rnd = new Random();
 			//Title = RandomString();
 			//Summary = RandomString();
-			ReleaseDate = DateTime.Now;
-			OwnAuthor = new Author { Name = RandomString() };
+			//ReleaseDate = DateTime.Now;
+			//OwnAuthor = new Author { Name = RandomString() };
 		}
 
 		private string RandomString(int length = 10)

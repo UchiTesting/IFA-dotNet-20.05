@@ -34,28 +34,22 @@ namespace _200525_Exo08_Library.Views
 			// Local being a cache keeping the content of the last request.
 			// 
 			db.Books.Load();
+
+			CbxAuthor.ItemsSource = db.Authors.Local;
+			db.Authors.Load();
 		}
 
 
 		private void BtnAdd_Click(object sender, RoutedEventArgs e)
 		{
 			Book nb = new Book();
+
 			nb.Title = TbxTitle.Text;
 			nb.Summary = TbxSummary.Text;
-			nb.ReleaseDate = DateTime.Now;
-			nb.OwnAuthor.Name = TbxAuthor.Text;
+			nb.ReleaseDate = (DateTime)DpkDate.SelectedDate;
+			nb.OwnAuthor = (Author)CbxAuthor.SelectedItem;
 
 			db.Books.Add(nb);
-			db.SaveChanges();
-		}
-
-		private void BtnDelete_Click(object sender, RoutedEventArgs e)
-		{
-			Book nb = LvBooks.SelectedItem as Book;
-
-			if (nb is null) return;
-
-			db.Books.Remove(nb);
 			db.SaveChanges();
 		}
 
@@ -68,9 +62,18 @@ namespace _200525_Exo08_Library.Views
 			nb.Title = TbxTitle.Text;
 			nb.Summary = TbxSummary.Text;
 			nb.ReleaseDate = (DateTime)DpkDate.SelectedDate;
-			nb.OwnAuthor.Name = TbxAuthor.Text;
+			nb.OwnAuthor = (Author)CbxAuthor.SelectedItem;
 
-			//db.Books.Remove(nb);
+			db.SaveChanges();
+		}
+
+		private void BtnDelete_Click(object sender, RoutedEventArgs e)
+		{
+			Book nb = LvBooks.SelectedItem as Book;
+
+			if (nb is null) return;
+
+			db.Books.Remove(nb);
 			db.SaveChanges();
 		}
 
@@ -85,7 +88,7 @@ namespace _200525_Exo08_Library.Views
 			TbxTitle.Text = nb.Title;
 			TbxSummary.Text = nb.Summary;
 			DpkDate.SelectedDate = nb.ReleaseDate;
-			TbxAuthor.Text = nb.OwnAuthor.Name;
+			CbxAuthor.SelectedItem = nb.OwnAuthor;
 		}
 	}
 }

@@ -37,7 +37,7 @@
          <TextBox x:Name="TbxTitle" Text="" Grid.Column="1" Grid.Row="0"/>
          <TextBox x:Name="TbxSummary" Text="" TextWrapping="Wrap" AcceptsReturn="True" Grid.Column="1" Grid.Row="1" />
          <DatePicker x:Name="DpkDate" Text="" Grid.Column="1" Grid.Row="2"/>
-         <ComboBox x:Name="TbxAuthor" Text="" Grid.Column="1" Grid.Row="3"/>
+         <ComboBox x:Name="CbxAuthor" Text="" Grid.Column="1" Grid.Row="3" DisplayMemberPath="Name"/>
       </Grid>
       <!-- Button Column -->
       <StackPanel Grid.Column="2" Orientation="Vertical">

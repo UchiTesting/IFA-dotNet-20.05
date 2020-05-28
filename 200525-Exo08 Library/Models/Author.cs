@@ -32,5 +32,7 @@ namespace _200525_Exo08_Library.Models
 				OnPropertyChanged(nameof(Name));
 			}
 		}
+
+		//virtual public ICollection<Book> WrittenBooks { get;set;}
 	}
 }

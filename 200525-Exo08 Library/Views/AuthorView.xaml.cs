@@ -12,6 +12,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using _200525_Exo08_Library.Models;
+using _200525_Exo08_Library.Helpers;
+using System.Data.Entity;
+using System.Data.SqlClient;
 
 namespace _200525_Exo08_Library.Views
 {
@@ -20,24 +24,64 @@ namespace _200525_Exo08_Library.Views
 	/// </summary>
 	public partial class AuthorView : Page
 	{
+		AppDBContext db;
+
 		public AuthorView()
 		{
 			InitializeComponent();
+			db = new AppDBContext();
+
+			LvAuthors.ItemsSource = db.Authors.Local;
+			db.Authors.Load();
 		}
 
 		private void BtnAdd_Click(object sender, RoutedEventArgs e)
 		{
+			Author na = new Author();
 
+			na.Name = TbxAuthorName.Text;
+
+			db.Authors.Add(na);
+			db.SaveChanges();
 		}
 
 		private void BtnEdit_Click(object sender, RoutedEventArgs e)
 		{
+			Author na = LvAuthors.SelectedItem as Author;
 
+			if (na is null) return;
+
+			na.Name = TbxAuthorName.Text;
+
+			db.SaveChanges();
 		}
 
 		private void BtnDelete_Click(object sender, RoutedEventArgs e)
 		{
+			Author na = LvAuthors.SelectedItem as Author;
 
+			if (na is null) return;
+
+			int writtenBookNumber = (from b in db.Books where b.OwnAuthor.Id == na.Id select b).Count();
+
+			if (writtenBookNumber == 0)
+			{
+				db.Authors.Remove(na);
+				db.SaveChanges();
+			}
+			else
+			{
+				MessageBox.Show($"{na.Name} still has a book !", "Check it out!");
+			}
+		}
+
+		private void LvAuthors_SelectionChanged(object sender, SelectionChangedEventArgs e)
+		{
+			Author na = LvAuthors.SelectedItem as Author;
+
+			if (na is null) return;
+
+			TbxAuthorName.Text = na.Name;
 		}
 	}
 }

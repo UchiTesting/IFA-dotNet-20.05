@@ -16,9 +16,12 @@
          <ColumnDefinition Width="100" />
       </Grid.ColumnDefinitions>
       <!-- ListView column -->
-      <ListView x:Name="LvAuthors"  Grid.Column="0" DisplayMemberPath="Title" />
+      <ListView x:Name="LvAuthors"  Grid.Column="0" DisplayMemberPath="Name" SelectionChanged="LvAuthors_SelectionChanged" />
       <!-- Datagrid -->
-      <DataGrid x:Name="DgAuthor" Grid.Column="1" CanUserAddRows="False"/>
+      <StackPanel Grid.Column="1">
+         <Label>Author full name: </Label><TextBox x:Name="TbxAuthorName" />
+         <DataGrid x:Name="DgAuthor" CanUserAddRows="False"/>
+      </StackPanel>
       <!-- Button Column -->
       <StackPanel Grid.Column="2" Orientation="Vertical">
          <Button x:Name="BtnAdd" Content="Add" Click="BtnAdd_Click" />
