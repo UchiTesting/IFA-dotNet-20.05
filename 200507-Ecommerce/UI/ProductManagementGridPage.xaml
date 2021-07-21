@@ -1,0 +1,63 @@
+﻿<Page x:Class="_200507_Exo07_Ecommerce.UI.ProductManagementGridPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:_200507_Exo07_Ecommerce.UI"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ProductManagementGridPage">
+
+   <Grid>
+      <!---->
+      <DataGrid Name="DgArticleList" AutoGenerateColumns="False" CanUserAddRows="False" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Height="Auto" DockPanel.Dock="Bottom">
+         <DataGrid.Columns>
+            <!---->
+            <DataGridTemplateColumn Header="Name">
+               <DataGridTemplateColumn.CellTemplate>
+                  <DataTemplate>
+                     <!---->
+                     <TextBlock Text="{Binding Name}"/>
+                  </DataTemplate>
+               </DataGridTemplateColumn.CellTemplate>
+            </DataGridTemplateColumn>
+            <!---->
+            <DataGridTemplateColumn Header="Description">
+               <DataGridTemplateColumn.CellTemplate>
+                  <DataTemplate>
+                     <!---->
+                     <TextBlock Text="{Binding Description}"></TextBlock>
+                  </DataTemplate>
+               </DataGridTemplateColumn.CellTemplate>
+            </DataGridTemplateColumn>
+            <!---->
+            <DataGridTemplateColumn Header="Price">
+               <DataGridTemplateColumn.CellTemplate>
+                  <DataTemplate>
+                     <!---->
+                     <TextBlock Text="{Binding Price}"></TextBlock>
+                  </DataTemplate>
+               </DataGridTemplateColumn.CellTemplate>
+            </DataGridTemplateColumn>
+            <!---->
+            <DataGridTemplateColumn Header="Manage Entry">
+               <DataGridTemplateColumn.CellTemplate>
+                  <DataTemplate>
+                     <!---->
+                     <Button Name="BtnEditProduct" Content="Edit Product" Click="BtnEditProduct_Click" />
+                  </DataTemplate>
+               </DataGridTemplateColumn.CellTemplate>
+            </DataGridTemplateColumn>
+            <!---->
+            <DataGridTemplateColumn Header="Manage Entry">
+               <DataGridTemplateColumn.CellTemplate>
+                  <DataTemplate>
+                     <!---->
+                     <Button Name="BtnArchiveProduct" Content="Toggle Archive Product" Click="BtnArchiveProduct_Click" />
+                  </DataTemplate>
+               </DataGridTemplateColumn.CellTemplate>
+            </DataGridTemplateColumn>
+         </DataGrid.Columns>
+      </DataGrid>
+   </Grid>
+</Page>

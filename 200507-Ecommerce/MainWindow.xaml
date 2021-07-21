@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:_200507_Ecommerce"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Escroquerie Shop: All your Cash Are Belong to Us!" Height="470" Width="800">
     <Grid>
-      <Frame Name="MainWindowFrame" Source="UI/LoginPage.xaml"/>
+      <Frame Name="FrmMainWindow" Source="UI/LoginPage.xaml" NavigationUIVisibility="Hidden"/>
     </Grid>
 </Window>

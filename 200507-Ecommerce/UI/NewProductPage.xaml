@@ -1,0 +1,21 @@
+﻿<Page x:Class="_200507_Exo07_Ecommerce.UI.NewProductPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:_200507_Exo07_Ecommerce.UI"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="NewProductPage">
+
+   <Canvas Background="Black" Margin="1,23,-1,-23">
+      <Label Name="LblName" Content="Name" FontSize="14" Foreground="White" Canvas.Left="302" Canvas.Top="103"/>
+      <Label Name="LblDescription" Content="Description" FontSize="14" Foreground="White" Canvas.Left="302" Canvas.Top="163"/>
+      <Label Name="LblPrice" Content="Price" FontSize="14" Foreground="White" Canvas.Left="302" Canvas.Top="218"/>
+      <TextBox Name="TbxName" FontSize="14" Foreground="White" Canvas.Left="302" Canvas.Top="137" Background="Gray" Width="200"/>
+      <TextBox Name="TbxDescription" FontSize="14" Foreground="White" Canvas.Left="302" Canvas.Top="192" Background="Gray" Width="200"/>
+      <TextBox Name="TbxPrice" FontSize="14" Foreground="White" Canvas.Left="302" Canvas.Top="247" Background="Gray" Width="200"/>
+      <Button x:Name="BtnOk" Content="OK" FontSize="14" Foreground="White" Background="Green" Canvas.Left="302" Canvas.Top="296" Width="80" Click="BtnOk_Click" />
+      <Button x:Name="BtnCancel" Content="Cancel" FontSize="14" Foreground="White" Background="Red" Canvas.Left="422" Canvas.Top="296" Width="80" Click="BtnCancel_Click" />
+   </Canvas>
+</Page>

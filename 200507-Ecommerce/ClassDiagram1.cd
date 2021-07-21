@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Class Name="_200507_Exo07_Ecommerce.Objects.ApplicationContext">
+    <Position X="16.75" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>Objects\ApplicationContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_200507_Exo07_Ecommerce.Objects.Cart">
+    <Position X="10" Y="0.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AACCAAAAIAAAAIAAAABAAAAAgAAAAAAAAQAQAAEAAAA=</HashCode>
+      <FileName>Objects\Cart.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="_200507_Exo07_Ecommerce.Objects.MonetaryAmount">
+    <Position X="16.5" Y="3" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAACAAAAAAAAAAABAAEQAAAA=</HashCode>
+      <FileName>Objects\MonetaryAmount.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_200507_Exo07_Ecommerce.Objects.Product">
+    <Position X="7.25" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AggCIAAAAQAgAIAEAABAQAQAgAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Objects\Product.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="_200507_Exo07_Ecommerce.Objects.User">
+    <Position X="4.25" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAQCAAAAAAAIAIEEgABAAAAAiAAAAIACAAAQIAAAAAA=</HashCode>
+      <FileName>Objects\User.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="_200507_Exo07_Ecommerce.Objects.EShopFacade">
+    <Position X="0.5" Y="0.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AQAAgCAAgQACACAAEAAACAAABAAAQgAAAAAAAAAAAAY=</HashCode>
+      <FileName>Objects\eShopFacade.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

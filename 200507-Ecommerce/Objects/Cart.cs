@@ -1,15 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace _200507_Exo07_Ecommerce.Objects
 {
-	public class Cart
+	public class Cart : INotifyPropertyChanged
 	{
 		public Cart() { }
 
-		public int Id { get; set; }
+		private int _id;
+		private Dictionary<int, int> orderedProducts;
+
+
+		public int Id { get { return _id; } set { if (_id != value) _id = value; NotifyPropertyChanged("Id"); } }
 		// Dictionary for ProductID and respective quantity
-		public Dictionary<int, int> OrderedProducts { get; set; }
+		public Dictionary<int, int> OrderedProducts { get { return orderedProducts;} set { if (orderedProducts != value) orderedProducts = value; NotifyPropertyChanged("OrderedProducts");} }
+
+		public event PropertyChangedEventHandler PropertyChanged;
+
+		public void NotifyPropertyChanged(string propName)
+		{
+			PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propName));
+		}
 
 		public void GetTotalAmount()
 		{

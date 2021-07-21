@@ -66,6 +66,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Extensions\DbContextExtension.cs" />
+    <Compile Include="Extensions\ObservableCollectionExtension.cs" />
     <Compile Include="Migrations\202005122054346_AddedAdminDataToSeed.cs" />
     <Compile Include="Migrations\202005122054346_AddedAdminDataToSeed.designer.cs">
       <DependentUpon>202005122054346_AddedAdminDataToSeed.cs</DependentUpon>
@@ -87,6 +88,9 @@
     </Compile>
     <Compile Include="UI\MainWindowLoggedPage.xaml.cs">
       <DependentUpon>MainWindowLoggedPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\NewProductPage.xaml.cs">
+      <DependentUpon>NewProductPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="UI\OrderDetailPage.xaml.cs">
       <DependentUpon>OrderDetailPage.xaml</DependentUpon>
@@ -127,6 +131,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UI\MainWindowLoggedPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\NewProductPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
