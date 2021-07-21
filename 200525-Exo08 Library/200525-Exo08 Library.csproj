@@ -82,8 +82,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+<<<<<<< HEAD
     <Compile Include="Helpers\ApplicationCommands.cs" />
     <Compile Include="Helpers\UserRightsEnum.cs" />
+=======
+>>>>>>> df5b18c611f05b64a6e9fff875e16f78ebc3eddd
     <Compile Include="Migrations\202005250742187_InitialCreate.cs" />
     <Compile Include="Migrations\202005250742187_InitialCreate.designer.cs">
       <DependentUpon>202005250742187_InitialCreate.cs</DependentUpon>
@@ -92,24 +95,31 @@
     <Compile Include="Migrations\202005280938159_AuthorWrittenBooksIP.designer.cs">
       <DependentUpon>202005280938159_AuthorWrittenBooksIP.cs</DependentUpon>
     </Compile>
+<<<<<<< HEAD
     <Compile Include="Migrations\202005290749154_AddUserSet.cs" />
     <Compile Include="Migrations\202005290749154_AddUserSet.designer.cs">
       <DependentUpon>202005290749154_AddUserSet.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\User.cs" />
+=======
+    <Compile Include="Migrations\Configuration.cs" />
+>>>>>>> df5b18c611f05b64a6e9fff875e16f78ebc3eddd
     <Compile Include="Views\AuthorView.xaml.cs">
       <DependentUpon>AuthorView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\BookView.xaml.cs">
       <DependentUpon>BookView.xaml</DependentUpon>
     </Compile>
+<<<<<<< HEAD
     <Compile Include="Views\LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\UserAdminView.xaml.cs">
       <DependentUpon>UserAdminView.xaml</DependentUpon>
     </Compile>
+=======
+>>>>>>> df5b18c611f05b64a6e9fff875e16f78ebc3eddd
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -131,6 +141,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+<<<<<<< HEAD
     <Page Include="Views\LoginWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -139,6 +150,8 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+=======
+>>>>>>> df5b18c611f05b64a6e9fff875e16f78ebc3eddd
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\Author.cs" />
@@ -163,9 +176,12 @@
     <EmbeddedResource Include="Migrations\202005280938159_AuthorWrittenBooksIP.resx">
       <DependentUpon>202005280938159_AuthorWrittenBooksIP.cs</DependentUpon>
     </EmbeddedResource>
+<<<<<<< HEAD
     <EmbeddedResource Include="Migrations\202005290749154_AddUserSet.resx">
       <DependentUpon>202005290749154_AddUserSet.cs</DependentUpon>
     </EmbeddedResource>
+=======
+>>>>>>> df5b18c611f05b64a6e9fff875e16f78ebc3eddd
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

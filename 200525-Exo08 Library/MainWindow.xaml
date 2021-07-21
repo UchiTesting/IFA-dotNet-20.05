@@ -11,12 +11,18 @@
          <TabItem x:Name="TimMainTab" Header="Books">
             <Frame Source="Views/BookView.xaml" />
          </TabItem>
+<<<<<<< HEAD
          <TabItem x:Name="TimAuthors" Header="Authors" Visibility="Collapsed">
             <Frame Source="Views/AuthorView.xaml" />
          </TabItem>
          <TabItem x:Name="TimUsers" Header="UserAdmin"  Visibility="Collapsed">
             <Frame Source="Views/UserAdminView.xaml" />
          </TabItem>
+=======
+         <TabItem Header="Authors">
+            <Frame Source="Views/AuthorView.xaml" />
+         </TabItem>
+>>>>>>> df5b18c611f05b64a6e9fff875e16f78ebc3eddd
       </TabControl>
 
    </Grid>

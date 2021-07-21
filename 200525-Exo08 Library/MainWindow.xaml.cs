@@ -31,6 +31,7 @@ namespace _200525_Exo08_Library
 		/// <summary>
 		/// 
 		/// </summary>
+<<<<<<< HEAD
 		/// 
 		User currentUser;
 		public MainWindow()
@@ -63,5 +64,12 @@ namespace _200525_Exo08_Library
 
         }
 
+=======
+		public MainWindow()
+		{
+			InitializeComponent();
+
+		}
+>>>>>>> df5b18c611f05b64a6e9fff875e16f78ebc3eddd
 	}
 }
