@@ -4,6 +4,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 using _200525_Exo08_Library.Models;
 
 namespace _200525_Exo08_Library.Helpers
@@ -12,7 +13,8 @@ namespace _200525_Exo08_Library.Helpers
 	{
 		public AppDBContext() { }
 
-		public DbSet<Book> Books { get;set;}
-		public DbSet<Author> Authors {get;set; }
+		public DbSet<Book> Books { get; set; }
+		public DbSet<Author> Authors { get; set; }
+		public DbSet<User> Users { get; set; }
 	}
 }

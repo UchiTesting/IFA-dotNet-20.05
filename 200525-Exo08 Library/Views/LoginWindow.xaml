@@ -1,0 +1,36 @@
+﻿<Window x:Class="_200525_Exo08_Library.Views.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_200525_Exo08_Library.Views"
+        xmlns:hlp="clr-namespace:_200525_Exo08_Library.Helpers"
+        mc:Ignorable="d"
+        Title="LoginWindow" Height="450" Width="800">
+   <Window.CommandBindings>
+      <CommandBinding Command="{x:Static hlp:ApplicationCommands.TryLogin}" Executed="BtnValidate_Click" CanExecute="BtnValidate_CanExecute" />
+   </Window.CommandBindings>
+   <Grid>
+      <Grid.RowDefinitions>
+         <RowDefinition Height="*" />
+         <RowDefinition Height="*" />
+         <RowDefinition Height="*" />
+         <RowDefinition Height="*" />
+         <RowDefinition Height="*" />
+         <RowDefinition Height="*" />
+         <RowDefinition Height="*" />
+         <RowDefinition Height="*" />
+      </Grid.RowDefinitions>
+      <Label Grid.Row="1" Width="300">Username</Label>
+      <Label Grid.Row="3" Width="300">Password</Label>
+
+      <TextBox x:Name="TbxUsername" Grid.Row="2" Width="300" />
+      <TextBox x:Name="TbxPassword" Grid.Row="4" Width="300"/>
+      <WrapPanel Grid.Row="5" Width="300" Margin=" 10 10 10 0">
+         <Button x:Name="BtnValidate" Content="Validate"  Background="Green" Padding="10 10 10 10" Width="100" Command="{x:Static hlp:ApplicationCommands.TryLogin}"/>
+         <Button x:Name="BtnQuit" Content="Quit"  Background="Red" Padding="10 10 10 10" Width="100" Click="BtnQuit_Click" />
+      </WrapPanel>
+      <Label x:Name="LblErrorMsg" Grid.Row="6"></Label>
+
+   </Grid>
+</Window>

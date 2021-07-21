@@ -14,8 +14,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+
 using _200525_Exo08_Library.Helpers;
 using _200525_Exo08_Library.Models;
+using _200525_Exo08_Library.Views;
 
 namespace _200525_Exo08_Library
 {
@@ -24,65 +26,42 @@ namespace _200525_Exo08_Library
 	/// </summary>
 	public partial class MainWindow : Window
 	{
-		AppDBContext db;
 
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// 
+		User currentUser;
 		public MainWindow()
 		{
 			InitializeComponent();
-			db = new AppDBContext();
+			LoginWindow loginWindow = new LoginWindow();
+			this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
 
-			LvBooks.ItemsSource = db.Books.Local;
-			// Local being a cache keeping the content of the last request.
-			// 
-			db.Books.Load();
+			if (loginWindow.ShowDialog() == true)
+			{
+				currentUser = loginWindow.loggedUser;
+				MessageBox.Show($"Current User: {currentUser.Username} is {currentUser.Rights}","Test");
+			}
+
+			InitializeTabs();
+
 		}
 
-		private void BtnAdd_Click(object sender, RoutedEventArgs e)
-		{
-			Book nb = new Book();
-			nb.Title = TbxTitle.Text;
-			nb.Summary = TbxSummary.Text;
-			nb.ReleaseDate = DateTime.Now;
-			nb.OwnAuthor.Name = TbxAuthor.Text;
+		private void InitializeTabs()
+        {
+			if (currentUser.Rights >= UserRightsEnum.EDITOR)
+            {
+				TimAuthors.Visibility = Visibility.Visible;
+            }
 
-			db.Books.Add(nb);
-			db.SaveChanges();
-		}
+			if (currentUser.Rights >= UserRightsEnum.ADMIN)
+            {
+				TimUsers.Visibility = Visibility.Visible;
+            }
 
-		private void BtnDelete_Click(object sender, RoutedEventArgs e)
-		{
-			Book nb = LvBooks.SelectedItem as Book;
+        }
 
-			if (nb is null) return;
-
-			db.Books.Remove(nb);
-			db.SaveChanges();
-		}
-
-		private void BtnEdit_Click(object sender, RoutedEventArgs e)
-		{
-			Book nb = LvBooks.SelectedItem as Book;
-
-			if (nb is null) return;
-
-			nb.Title = TbxTitle.Text;
-			nb.Summary = TbxSummary.Text;
-			nb.OwnAuthor.Name = TbxAuthor.Text;
-
-			//db.Books.Remove(nb);
-			db.SaveChanges();
-		}
-
-		private void LvBooks_SelectionChanged(object sender, SelectionChangedEventArgs e)
-		{
-			Book nb = LvBooks.SelectedItem as Book;
-
-			if (nb is null) return;
-
-			TbxTitle.Text = nb.Title;
-			TbxSummary.Text = nb.Summary;
-			TbxDate.Text = nb.ReleaseDate.ToString();
-			TbxAuthor.Text = nb.OwnAuthor.Name;
-		}
 	}
 }
